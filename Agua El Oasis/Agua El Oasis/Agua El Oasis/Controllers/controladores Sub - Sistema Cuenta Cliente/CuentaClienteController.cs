@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Security;
 using Agua_El_Oasis.Models.Modelos_Sub___Sistema_Cuenta_Cliente;
+using Agua_El_Oasis.DA;
 
 namespace Agua_El_Oasis.Controllers.controladores_Sub___Sistema_Cuenta_Cliente
 {
@@ -41,6 +42,7 @@ namespace Agua_El_Oasis.Controllers.controladores_Sub___Sistema_Cuenta_Cliente
               //  LoginPagina(Login log, string returnUrl) debes llmar este metodo
                 // y enviarle estos parametros para que el usuario quede logueado
                 //automaticamente ahora solo te voy a enviar a la principal
+                TempData["Message"] = QueryResultSingleton.Intance.Message;
 
                 return RedirectToAction("catalogoPagina", "orden");
             }

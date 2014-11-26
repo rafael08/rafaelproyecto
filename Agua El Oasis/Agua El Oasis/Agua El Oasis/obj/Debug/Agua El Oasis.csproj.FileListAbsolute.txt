@@ -13,3 +13,9 @@ D:\Agua El Oasis\Agua El Oasis\Agua El Oasis\bin\Agua El Oasis.pdb
 D:\Agua El Oasis\Agua El Oasis\Agua El Oasis\obj\Debug\ResolveAssemblyReference.cache
 D:\Agua El Oasis\Agua El Oasis\Agua El Oasis\obj\Debug\Agua El Oasis.dll
 D:\Agua El Oasis\Agua El Oasis\Agua El Oasis\obj\Debug\Agua El Oasis.pdb
+D:\Documentos\GitHub\rafaelproyecto\Agua El Oasis\Agua El Oasis\Agua El Oasis\bin\Agua El Oasis.dll.config
+D:\Documentos\GitHub\rafaelproyecto\Agua El Oasis\Agua El Oasis\Agua El Oasis\bin\Agua El Oasis.dll
+D:\Documentos\GitHub\rafaelproyecto\Agua El Oasis\Agua El Oasis\Agua El Oasis\bin\Agua El Oasis.pdb
+D:\Documentos\GitHub\rafaelproyecto\Agua El Oasis\Agua El Oasis\Agua El Oasis\obj\Debug\Agua El Oasis.csprojResolveAssemblyReference.cache
+D:\Documentos\GitHub\rafaelproyecto\Agua El Oasis\Agua El Oasis\Agua El Oasis\obj\Debug\Agua El Oasis.dll
+D:\Documentos\GitHub\rafaelproyecto\Agua El Oasis\Agua El Oasis\Agua El Oasis\obj\Debug\Agua El Oasis.pdb

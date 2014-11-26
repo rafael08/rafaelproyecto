@@ -1,0 +1,132 @@
+﻿@model IEnumerable<Agua_El_Oasis.Models.Modelos_Sub___Sistema_Almacen.Producto>
+
+@{
+    ViewBag.Title = "carritoDeCompraPagina";
+}
+
+<h2>carritoDeCompraPagina</h2>
+<div style="background-color:Gray; width:16%; height:45%; position:absolute">
+
+<h4 style="color:Gray; background-color:White; margin-left:10%; text-align:center; color:Black; margin-right:10%;">Cantidad</h4>
+    <h1 style="color:Blue; background-color:White; width:20%; text-align:center; margin-left:37%;">
+   @if (@ViewBag.CantidadProductosCarrito != 0)
+   { 
+       @ViewBag.CantidadProductosCarrito
+
+   }else{
+            
+       ViewBag.vacio="0";
+       @ViewBag.vacio
+   }
+   </h1>
+   
+    <img style="width:75%; height:60%; margin-left:7%;" src="../../Content/themes/base/images/shopping_cart.png" />
+   
+    <table style="width:100%;">
+
+    <tr> 
+   
+
+    
+      <th style="width:20%; text-align:center">
+    @using (Html.BeginForm("ordenDetallePagina", "Orden"))
+    {
+    <input type="submit" value="Enviar Carrito" />
+    }
+     </th>
+
+    </tr>
+    </table>
+
+</div>
+
+
+<div style="background-color:Gray; width:20%; min-height:45%; margin-left:60%; position:absolute">
+    <h4 style="color:Gray; background-color:White; margin-left:10%; text-align:center; color:Black; margin-right:10%;">Cantidad</h4>
+    <h1 style="color:Blue; background-color:White; width:20%; text-align:center; margin-left:37%;">
+   @if (@ViewBag.CantidadProductosCarrito != 0)
+   { 
+       @ViewBag.CantidadProductosCarrito
+
+   }else{
+            
+       ViewBag.vacio="0";
+       @ViewBag.vacio
+   }
+   </h1>
+   
+    <img style="width:75%; height:60%; margin-left:7%;" src="../../Content/themes/base/images/shopping_cart.png" />
+   
+    <table style="width:100%;">
+
+    <tr> 
+   
+
+    
+      <th style="width:20%; text-align:center">
+    @using (Html.BeginForm("ordenDetallePagina", "Orden"))
+    {
+    <input type="submit" value="Enviar Carrito" />
+    }
+     </th>
+
+    </tr>
+    </table>
+</div>
+
+
+<table style="margin-left:20%">
+    <tr>
+        <th></th>
+
+        <th>
+            Producto
+        </th>
+        <th>
+            Precio
+        </th>
+        <th>
+            Cantidad
+        </th>
+
+        <th>
+           
+       </th>
+       <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            
+            @Html.ActionLink("Detalle", "Details", new { proID=item.p_idProducto }) |
+            @Html.ActionLink("Eliminar", "eliminarProductoCarrito", new { proID=item.p_idProducto })
+        </td>
+
+        <td>
+            @item.p_nombreProducto
+        </td>
+        <td>
+            @String.Format("{0:F}", item.p_precio)
+        </td>
+        @using (Html.BeginForm("actualizarProductoCarrito","Orden")){
+
+        <td >
+          <input name="proID" type="hidden" value="@item.p_idProducto" />
+          <input name="cantidad" type="text" value="@item.p_cantidad" style="width:40px; text-align:center; color:Blue"/>
+        </td>
+
+        <td>
+           <img style=" width:80px; height:80px;"  src="../../Content/themes/base/images/@item.p_imagen" />
+        </td>
+        <td>
+        <input type="submit" value="Guardar" />
+        
+        </td>
+        
+        }
+    </tr>
+}
+
+</table>
+

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Agua_El_Oasis.Models.Modelos_Sub___Sistema_Almacen.Producto>
+
+@{
+    ViewBag.Title = "verProductosPagina";
+}
+
+<h2>verProductosPagina</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Producto", "nuevoProductoPagina")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            p_idProducto
+        </th>
+        <th>
+            p_nombreProducto
+        </th>
+        <th>
+            p_precio
+        </th>
+        <th>
+            p_cantidad
+        </th>
+        <th>
+            p_descripcion
+        </th>
+        <th>
+            p_imagen
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Actualizar", "actualizarProductoPagina", new {proID=item.p_idProducto }) |
+            @Html.ActionLink("Detalle", "detalleProductoPagina", new { proID = item.p_idProducto }) |
+            @Html.ActionLink("Eliminar", "EliminarProductoPagina", new { proID = item.p_idProducto })
+        </td>
+        <td>
+            @item.p_idProducto
+        </td>
+        <td>
+            @item.p_nombreProducto
+        </td>
+        <td>
+            @String.Format("{0:F}", item.p_precio)
+        </td>
+        <td>
+            @item.p_cantidad
+        </td>
+        <td>
+            @item.p_descripcion
+        </td>
+        <td>
+            @item.p_imagen
+        </td>
+    </tr>
+}
+
+</table>
+

@@ -1,0 +1,40 @@
+﻿@model Agua_El_Oasis.Models.Modelos_Sub___Sistema_Almacen.Producto
+
+@{
+    ViewBag.Title = "detalle Producto ";
+}
+
+<h2>Detalles De Productos </h2>
+
+<fieldset>
+    <legend>Producto</legend>
+
+    <div class="display-label">idProducto</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.p_idProducto)
+    </div>
+
+    <div class="display-label">nombreProducto</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.p_nombreProducto)
+    </div>
+
+    <div class="display-label">precio</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.p_precio)
+    </div>
+
+    <div class="display-label">cantidad</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.p_cantidad)
+    </div>
+
+    <div class="display-label">descripcion</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.p_descripcion)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Actualizar Producto", "editarProductoPagina", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Volver al inicio", "Index")
+</p>

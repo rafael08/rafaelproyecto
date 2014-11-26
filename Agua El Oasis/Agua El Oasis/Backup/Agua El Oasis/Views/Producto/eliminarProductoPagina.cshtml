@@ -1,0 +1,38 @@
+﻿@model Agua_El_Oasis.Models.Modelos_Sub___Sistema_Almacen.Producto
+
+@{
+    ViewBag.Title = "eliminarProductoPagina";
+}
+
+<h2>eliminarProductoPagina</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Producto</legend>
+
+    <div class="display-label">p_idProducto</div>
+    <div class="display-field">@Model.p_idProducto</div>
+
+    <div class="display-label">p_nombreProducto</div>
+    <div class="display-field">@Model.p_nombreProducto</div>
+
+    <div class="display-label">p_precio</div>
+    <div class="display-field">@String.Format("{0:F}", Model.p_precio)</div>
+
+    <div class="display-label">p_cantidad</div>
+    <div class="display-field">@Model.p_cantidad</div>
+
+    <div class="display-label">p_descripcion</div>
+    <div class="display-field">@Model.p_descripcion</div>
+
+    <div class="display-label">p_imagen</div>
+    <div class="display-field">@Model.p_imagen</div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+
+

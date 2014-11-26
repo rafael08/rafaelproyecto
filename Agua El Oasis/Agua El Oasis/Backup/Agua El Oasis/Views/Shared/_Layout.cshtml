@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
+</head>
+
+<body>
+    <div class="page">
+
+        <div id="header">
+            <div id="title">
+                <h1>Agua El Oasis</h1>
+            </div>
+
+            <div id="logindisplay">
+       @Html.Partial("loginParcial")
+            </div>
+
+            <div id="menucontainer">
+             
+           
+                <ul id="menu">
+                 <li>@Html.ActionLink("Inicio", "catalogoPagina", "Orden")</li>
+                @{
+                
+                    if(Request.Cookies["Usuario"]!=null){
+                    
+                        if(Request.Cookies["Usuario"]["Role"]=="1"){
+                            
+                            <li>@Html.ActionLink("Almacen", "almacenPagina", "Producto")</li>
+                            <li>@Html.ActionLink("Administracion", "administracionPagina", "Administracion")</li>
+                        }
+                        else if(Request.Cookies["Usuario"]["Role"]=="4"){
+                    
+                           <li>@Html.ActionLink("Almacen", "almacenPagina", "Producto")</li>
+                        }
+                    }
+
+                  }
+                 
+
+                    
+                    
+                    
+                  
+
+                    
+
+                    
+                </ul>
+
+            </div>
+        </div>
+
+        <div id="main">
+            @RenderBody()
+            <div id="footer">
+           
+            </div>
+        </div>
+         <h5 style="color:White; margin-left:50px;">© 2014. Agua el Oasis, República Dominicana, INC.
+Todos los derechos reservados. Contacto | Declaracion de Privacidad | Politicas</h5>
+    </div>
+</body>
+</html>
+

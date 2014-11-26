@@ -1,0 +1,46 @@
+﻿@model Agua_El_Oasis.Models.Modelos_Sub___Sistema_Cuenta_Cliente.Cliente
+
+@{
+    ViewBag.Title = "cuentaClientePagina";
+}
+
+<h2>cuentaClientePagina</h2>
+
+<div style="width:20%;background-color:Gray; position:absolute">
+
+<ul id="menu">
+<li>@Html.ActionLink("contrasena", "CambioContrasenaPagina", "CuentaCliente")</li>
+</ul>
+
+</div>
+
+<fieldset>
+    <legend>Cliente</legend>
+
+    <div class="display-label">@Html.LabelFor(model => model.p_nombrePersona)</div>
+    <div class="display-field">@Model.p_nombrePersona</div>
+
+    <div class="display-label">@Html.LabelFor(model => model.p_apellidoPersona)</div>
+    <div class="display-field">@Model.p_apellidoPersona</div>
+
+    <div class="display-label">@Html.LabelFor(model => model.p_direccion_Persona)</div>
+    <div class="display-field">@Model.p_direccion_Persona</div>
+
+    <div class="display-label">@Html.LabelFor(model => model.p_email_Persona)</div>
+    <div class="display-field">@Model.p_email_Persona</div>
+
+    <div class="display-label">@Html.LabelFor(model => model.p_cedula_Persona)</div>
+    <div class="display-field">@Model.p_cedula_Persona</div>
+
+    <div class="display-label">@Html.LabelFor(model => model.p_nombreUsuario)</div>
+    <div class="display-field">@Model.p_nombreUsuario</div>
+
+    <div class="display-label">p_telefonoPersona</div>
+    <div class="display-field">@Model.p_telefonoPersona</div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

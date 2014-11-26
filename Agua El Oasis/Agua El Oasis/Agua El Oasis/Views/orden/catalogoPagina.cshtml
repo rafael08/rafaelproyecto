@@ -14,6 +14,9 @@
 
 <div id="body">
 <div style="background-color:Gray; width:16%; height:45%; position:absolute">
+@if (TempData["Message"] != null) { 
+    @Html.Hidden("RegistroCliente", TempData["Message"])
+}
 
 @using (Html.BeginForm())
 {
@@ -139,3 +142,11 @@
 </table>
 
 </div>
+
+<script>
+    $(document).ready(function () {
+        if ($('#RegistroCliente') != undefined && $('#RegistroCliente').val() != null) {
+            alert($('#RegistroCliente').val());
+        }
+    });
+</script>

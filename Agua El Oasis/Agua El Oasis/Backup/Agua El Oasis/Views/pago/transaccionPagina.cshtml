@@ -1,0 +1,151 @@
+﻿@model Agua_El_Oasis.Models.Modelos_Sub___Sistema_Orden.Pago
+
+@{
+
+    ViewBag.Title = "transaccionPagina";
+}
+
+<h2>transaccionPagina</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<fieldset>
+
+<legend>Pago</legend>
+<br />
+<table>
+    <tr>
+        <th style="text-align:center; color:White; background-color:Gray">Titular de la Orden</th>
+    </tr>       
+    <tr>
+        <th> Nombre</th>
+        <th> Apellido</th>
+        <th> Direccion</th>
+        <th> Numero Orden</th>
+    </tr>
+    <tr>
+        <td>
+             @Model.p_r_Pago_Cliente.p_nombrePersona
+        </td>
+        <td>
+             @Model.p_r_Pago_Cliente.p_apellidoPersona
+        </td>
+        <td>
+        
+             @Model.p_r_Pago_Cliente.p_direccion_Persona
+        </td>
+        <td style="text-align:center; color:Blue; font-size:medium">
+         @Model.p_r_Pago_Factura.p_r_Orden_Factura.p_idOrden 
+            
+        </td>
+
+     </tr>
+    
+    </table>
+    
+    <br />
+
+
+
+@using (Html.BeginForm()) {
+   
+    
+     @Html.ValidationSummary(true)
+    
+
+        
+
+        <div  class="display-label" style="color:Black">
+            
+
+              Monto a pagar: @Model.p_r_Pago_Factura.p_montoFactura 
+        </div>
+
+        <br />
+
+         <fieldset style="width:40%">
+               <legend>Datos propietario Tarjeta</legend>
+
+               <div class="editor-label">
+
+                   @Html.Label("Nombre")
+               </div>
+               
+               <div class="editor-field">
+                   <input type="text" name="nombre" />
+               </div>
+
+               <div class="editor-label">
+                    @Html.Label("Apellido")
+               </div>
+               
+               <div class="editor-field">
+                    <input type="text" name="apellido" />
+                    @Html.ValidationMessageFor(model => model.p_pin)
+               </div>
+               <div class="editor-label">
+
+                   @Html.Label("Cedula")
+               </div>
+               
+               <div class="editor-field">
+                   <input type="text" name="cedula" />
+               </div>
+
+               <div class="editor-label">
+                    @Html.Label("Telefono principal")
+               </div>
+               
+               <div class="editor-field">
+                    <input type="text" name="telefono" />
+                    @Html.ValidationMessageFor(model => model.p_pin)
+               </div>
+         </fieldset>
+
+
+        <fieldset style="width:40%">
+
+        <legend>Datos Tarjeta</legend>
+         <div class="editor-label">
+
+            @Html.LabelFor(model => model.p_numTargeta)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.p_numTargeta)
+            @Html.ValidationMessageFor(model => model.p_numTargeta)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.p_pin)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.p_pin)
+            @Html.ValidationMessageFor(model => model.p_pin)
+        </div>
+        </fieldset>
+
+
+    <table>
+        <tr>
+          <td style="border-color:White">
+          <input type="submit" value="Pagar" />
+          </td>
+          <td style="border-color:White">
+        @using (Html.BeginForm())
+        { 
+                 <input type="submit" value="Cancelar" />
+        }
+          </td>
+       </tr>
+     </table>
+  
+
+}
+
+
+</fieldset>
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

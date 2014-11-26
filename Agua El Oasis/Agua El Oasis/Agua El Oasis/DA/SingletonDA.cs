@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using Agua_El_Oasis.Models.Modelos_Sub___Sistema_Cuenta_Cliente;
 using Agua_El_Oasis.Models.Modelos_Sub___Sistema_Almacen;
 using Agua_El_Oasis.Models.Modelos_Sub___Sistema_Orden;
+using Agua_El_Oasis.DA;
 
 namespace Agua_El_Oasis.Models
 {
@@ -15,7 +16,7 @@ namespace Agua_El_Oasis.Models
 
         //atributo del tipo de la clase
         private static SingletonDA intancia = null;
-        private string url = @"data source=.\SQLEXPRESS;Integrated Security=true;AttachDBFilename=|DataDirectory|Agua_El_Oasis.mdf;User Instance=true";
+        //private string url = @"data source=.\SQLEXPRESS;Integrated Security=true;AttachDBFilename=|DataDirectory|Agua_El_Oasis.mdf;User Instance=true";
         private SqlConnection conn = null;
         private SqlCommand comando = null;
         private SqlDataReader reader = null;
@@ -40,8 +41,9 @@ namespace Agua_El_Oasis.Models
         public string conection()
         {
 
-
-            conn = new SqlConnection(url);
+            String ConnString = System.Configuration.ConfigurationManager.
+                ConnectionStrings["Agua_El_OasisContext"].ConnectionString;
+            conn = new SqlConnection(ConnString);
             try
             {
                 conn.Open();
@@ -67,6 +69,8 @@ namespace Agua_El_Oasis.Models
 
                 if (pe.p_apellidoPersona == "" && pe.p_cedula_Persona == "" && pe.p_direccion_Persona == "" && pe.p_nombreUsuario == "" && pe.p_contrasenaPersona == "" && pe.p_email_Persona == "")
                 {
+                    QueryResultSingleton.Intance.Success = false;
+                    QueryResultSingleton.Intance.Message = "DEBE ESPECIFICAR campos vacios";
                     return "DEBE ESPECIFICAR campos vacios";
                 }
 
@@ -75,12 +79,16 @@ namespace Agua_El_Oasis.Models
 
                 while (reader.Read())
                 {
+                    QueryResultSingleton.Intance.Success = false;
+                    QueryResultSingleton.Intance.Message = "usuario y email existen en la BD entre otro...";
                     return "usuario y email existen en la BD entre otro...";
                 }
                 reader.Close();
                 comando = new SqlCommand("EXEC registrarPersona '" + pe.p_nombrePersona + "','" + pe.p_apellidoPersona + "','" + pe.p_cedula_Persona + "','" + pe.p_direccion_Persona + "','" + pe.p_nombreUsuario + "','" + pe.p_contrasenaPersona + "','" + pe.p_email_Persona + "' ", conn);
                 comando.ExecuteNonQuery();
                 comando.Dispose();
+                QueryResultSingleton.Intance.Success = true;
+                QueryResultSingleton.Intance.Message = "Usuario Registrado Exitosamente";
 
                 conn.Close();
             }

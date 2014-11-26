@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+@model IEnumerable<Agua_El_Oasis.Models.Modelos_Sub___Sistema_Almacen.Producto>
+
+@{
+    ViewBag.Title = "catalogo";
+  
+    
+}
+   
+
+<h2 style="color:Blue; margin-left:350px;">Catalogo</h2>
+
+<div id="body">
+<div style="background-color:Gray; width:16%; height:45%; position:absolute">
+
+@using (Html.BeginForm())
+{
+
+    <table>
+      <tr > 
+          <th style="width:200px; text-align:center"> Buscar Productos</th>
+      </tr>
+    
+     <tr>
+   <td style="border-color:transparent;">
+    <input type="text" id="buscar" name="buscar" style="width:75%; margin-left:7%;" />
+     </td>
+     </tr>
+     <tr>
+     <td style="border-color:transparent">
+    <input type="submit" value="Buscar" style="margin-left:10%" /> 
+    <input type="button" value="Limpiar" onclick="document.getElementById('buscar').value='';document.forms[0].submit()" /> 
+    </td>
+    </tr>
+    </table>
+}
+
+</div>
+
+
+<div style="background-color:Gray; width:20%; min-height:45%; margin-left:60%; position:absolute">
+    <h4 style="color:Gray; background-color:White; margin-left:10%; text-align:center; color:Black; margin-right:10%;">Cantidad</h4>
+    <h1 style="color:Blue; background-color:White; width:20%; text-align:center; margin-left:37%;">
+   @if (@ViewBag.CantidadProductosCarrito != 0)
+   { 
+       @ViewBag.CantidadProductosCarrito
+
+   }else{
+            
+       ViewBag.vacio="0";
+       @ViewBag.vacio
+   }
+   </h1>
+   
+    <img style="width:75%; height:60%; margin-left:7%;" src="../../Content/themes/base/images/shopping_cart.png" />
+   
+    <table style="width:100%;">
+
+    <tr> 
+   
+       <th style="width:20%">
+    
+    @using (Html.BeginForm("carritoDeCompraPagina", "Orden"))
+    {
+    <input type="submit" value="Editar carrito"  />
+    }
+      </th>
+    
+      <th style="width:20%">
+    @using (Html.BeginForm("ordenDetallePagina", "Orden"))
+    {
+    <input type="submit" value="Enviar" />
+    }
+     </th>
+
+    </tr>
+    </table>
+</div>
+
+
+<table style="margin-left:22%">
+    <tr>
+        <th></th>
+        <th>
+            Nombre
+        </th>
+
+        <th>
+            Precio
+        </th>
+        <th>
+            Cantidad
+        </th>
+        <th style="text-align:center">Carrito</th>
+
+    </tr>
+
+@foreach (var item in Model)
+{
+    
+<tr>
+        <td>
+      
+<img style=" width:80px; height:80px;"  src="../../Content/themes/base/images/@item.p_imagen" />
+         
+        </td>
+        <td>
+            @item.p_nombreProducto
+        </td>
+  
+        <td>
+        @String.Format("{0:F}", item.p_precio)
+           
+        </td>
+
+
+
+
+    
+        @using (Html.BeginForm("agregarCarrito", "Orden"))
+        {
+        <td>
+        <select name="cantidad">@for (int i = 1; i < 100; i++)
+                                { <option>@i</option>}</select>
+        </td>
+        
+        <td>
+        <input name="proID" type="hidden" value="@item.p_idProducto"  />
+        <input type="submit" value="Agregar al Carrito" />
+           </td>
+        }
+
+
+    </tr>
+}
+
+</table>
+
+</div>
