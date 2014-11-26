@@ -1,0 +1,15 @@
+c:\users\ruben miqueas\documents\visual studio 2010\Projects\Agua El Oasis\Agua El Oasis\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Ruben Miqueas\Documents\Visual Studio 2010\Projects\Agua El Oasis\Agua El Oasis\bin\Agua El Oasis.dll
+C:\Users\Ruben Miqueas\Documents\Visual Studio 2010\Projects\Agua El Oasis\Agua El Oasis\bin\Agua El Oasis.pdb
+C:\Users\Ruben Miqueas\Documents\Visual Studio 2010\Projects\Agua El Oasis\Agua El Oasis\obj\Debug\Agua El Oasis.dll
+C:\Users\Ruben Miqueas\Documents\Visual Studio 2010\Projects\Agua El Oasis\Agua El Oasis\obj\Debug\Agua El Oasis.pdb
+C:\Users\Owner\Documents\Visual Studio 2010\Projects\Agua El Oasis\Agua El Oasis\Agua El Oasis\bin\Agua El Oasis.dll
+C:\Users\Owner\Documents\Visual Studio 2010\Projects\Agua El Oasis\Agua El Oasis\Agua El Oasis\bin\Agua El Oasis.pdb
+C:\Users\Owner\Documents\Visual Studio 2010\Projects\Agua El Oasis\Agua El Oasis\Agua El Oasis\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Owner\Documents\Visual Studio 2010\Projects\Agua El Oasis\Agua El Oasis\Agua El Oasis\obj\Debug\Agua El Oasis.dll
+C:\Users\Owner\Documents\Visual Studio 2010\Projects\Agua El Oasis\Agua El Oasis\Agua El Oasis\obj\Debug\Agua El Oasis.pdb
+D:\Agua El Oasis\Agua El Oasis\Agua El Oasis\bin\Agua El Oasis.dll
+D:\Agua El Oasis\Agua El Oasis\Agua El Oasis\bin\Agua El Oasis.pdb
+D:\Agua El Oasis\Agua El Oasis\Agua El Oasis\obj\Debug\ResolveAssemblyReference.cache
+D:\Agua El Oasis\Agua El Oasis\Agua El Oasis\obj\Debug\Agua El Oasis.dll
+D:\Agua El Oasis\Agua El Oasis\Agua El Oasis\obj\Debug\Agua El Oasis.pdb

@@ -1,0 +1,218 @@
+﻿@model Agua_El_Oasis.Models.Modelos_Sub___Sistema_Orden.Orden
+
+@{
+    ViewBag.Title = "Orden Detalle pagina";
+}
+
+<h2 style="color:Blue; margin-left:350px;">Orden Detalle</h2>
+
+<div id="body">
+
+<div style="background-color:Gray; width:16%; height:45%; position:absolute">
+
+@using (Html.BeginForm())
+{
+
+    <table style="margin-top:10%">
+      <tr > 
+          <th style="width:200px; text-align:center; background-color:White;"> Nueva Orden</th>
+      </tr>
+  
+     <tr>
+       
+         <td style="border-color:transparent;">
+           <br />
+          <img style="width:75%; height:25%; margin-left:11%;" src="../../Content/themes/base/images/Courier Service - Courier service cheap.jpg" />
+          </td>
+      </tr>
+
+    </table>
+}
+
+</div>
+
+
+<div style="background-color:Gray; width:20%; min-height:45%; margin-left:60%; position:fixed">
+    <h4 style="color:Gray; background-color:White; margin-left:10%; text-align:center; color:Black; margin-right:10%;">Monto Total</h4>
+    <h5 style="color:Blue; background-color:White; width:50%; text-align:center; margin-left:25%;">
+    @{
+       
+        ViewBag.MontoOrden = 0.0;
+    }
+@foreach (var item in Model.p_r_Orden_Carrito.p_mi_carrito)
+{
+
+    double precio = @item.p_precio;
+    int cantidad = @item.p_cantidad;
+    double montoProducto=cantidad*precio;
+    
+   
+       ViewBag.MontoOrden=ViewBag.MontoOrden+ montoProducto;
+
+       
+       
+       }
+
+      $ @ViewBag.MontoOrden.00
+
+   </h5>
+   
+    <img style="width:75%; height:60%; margin-left:7%;" src="../../Content/themes/base/images/Delivery.gif" />
+   
+    <table style="width:100%;">
+
+    <tr> 
+   
+       <th style="width:20%">
+    
+    @using (Html.BeginForm("confirmarOrden", "Orden"))
+    {
+    <input type="submit" value="Confirmar Orden"  />
+    }
+      </th>
+    
+      <th style="width:20%">
+    @using (Html.BeginForm("carritoDeCompraPagina", "Orden"))
+    {
+    <input type="submit" value="Editar" />
+    }
+     </th>
+
+    </tr>
+    </table>
+</div>   
+    
+    <table style="margin-left:22%">
+    <tr><th style="color:White; background-color:Gray;"> Titular Orden</th>
+    </tr>
+        <tr>
+          <th>
+          <div class="display-label">Nombre</div>
+          </th>
+          
+          <th>
+          <div class="display-label">Direccion </div>
+          </th>
+    
+
+    </tr>
+    <tr>
+         <td>
+         <div class="display-field">@Model.p_r_Cliente_Titular.p_nombrePersona @Model.p_r_Cliente_Titular.p_apellidoPersona</div>
+         </td>
+         <td>@Model.p_r_Cliente_Titular.p_direccion_Persona</td>
+
+               @using (Html.BeginForm("carritoDeCompraPagina", "Orden"))
+         {    
+             
+             <td>
+                <input type="submit" value="Atualizar Direccion" />
+             </td>
+             
+         }
+    
+    </tr>
+   
+    
+    
+    </table>
+
+
+    <br />
+<table style="margin-left:22%">
+     <tr><th style="color:White; background-color:Gray;"> Detalles Orden</th>
+     </tr>
+     <tr>
+         <th>
+              <div class="display-label">Fecha Orden</div>
+         </th>
+         
+         <th>
+              <div class="display-label">Status Orden</div>
+         </th>
+         
+
+    </tr>
+    <tr> 
+           <td>
+           <div class="display-field">@String.Format("{0:g}", Model.p_fechaOrden.ToShortDateString())</div>
+           </td>
+    
+          <td>
+          <div class="display-field" style="color:Red">@Model.p_statusOrden</div>
+          </td>   
+
+    </tr>
+
+
+
+
+    <tr>
+        <th></th>
+        <th>
+            Nombre
+        </th>
+
+        <th>
+            Precio
+        </th>
+        <th>
+            Cantidad
+        </th>
+        <th>
+             Monto
+        </th>
+       
+
+    </tr>
+
+@foreach (var item in Model.p_r_Orden_Carrito.p_mi_carrito)
+{
+    
+<tr>
+        <td>
+      
+<img alt="" style=" width:80px; height:80px;"  src="../../Content/themes/base/images/@item.p_imagen" />
+         
+        </td>
+        <td>
+            @item.p_nombreProducto 
+        </td>
+  
+        <td>
+        @String.Format("{0:F}", item.p_precio)
+           
+        </td>      
+
+
+        <td>
+        @item.p_cantidad
+        </td>
+
+        
+        <td>
+        @{
+            if(@item.p_precio !=null){
+                
+                double precio=@item.p_precio;
+                int cantidad = @item.p_cantidad;
+               
+
+                ViewBag.MontoProducto = precio * cantidad;
+                
+                @ViewBag.MontoProducto
+
+               
+                
+                
+            }
+         }
+        </td>
+
+    </tr>
+}
+
+</table>
+
+
+</div>

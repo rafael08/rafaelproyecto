@@ -1,0 +1,9 @@
+﻿@if (Request.Cookies["Usuario"]!=null) { 
+
+<text> Bienvenido !<b> @Request.Cookies["Usuario"]["nomUsuario"]</b> !
+[@Html.ActionLink("Salir","salir", "Login" )] </text>
+    
+}else {
+@:[ @Html.ActionLink("Login", "loginPagina", "Login")]
+@:[ @Html.ActionLink("registrarse", "RegistroClientePagina", "CuentaCliente")]
+}
